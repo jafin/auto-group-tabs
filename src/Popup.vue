@@ -11,7 +11,10 @@ import { useGroupConfigurations, useStorage } from '@/composables'
 import { saveGroupConfigurations } from '@/util/group-configurations'
 import { isExtensionWorker, matcherPattern } from '@/util/helpers'
 import { SaveOptions } from '@/util/types'
-import { computed, onMounted, ref, watch } from 'vue'
+import type { Translation } from '@/util/types'
+import { computed, inject, onMounted, ref, watch } from 'vue'
+
+const msg = inject<Translation>('msg')!
 
 const popupSuggestionRef = ref<InstanceType<typeof PopupSuggestion>>()
 

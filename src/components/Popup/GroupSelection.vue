@@ -2,7 +2,7 @@
 import GroupTag from '@/components/GroupTag.vue'
 import Select from '@/components/Form/Select.vue'
 
-import { onMounted, watch, computed } from 'vue'
+import { computed, inject, onMounted, watch } from 'vue'
 import { until } from '@vueuse/core'
 import {
   useChromeState,
@@ -14,6 +14,9 @@ import {
   saveGroupConfigurations,
 } from '@/util/group-configurations'
 import { isExtensionWorker } from '@/util/helpers'
+import type { Translation } from '@/util/types'
+
+const msg = inject<Translation>('msg')!
 
 const props = defineProps<{
   modelValue: string | null

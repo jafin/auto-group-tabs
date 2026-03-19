@@ -30,13 +30,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { inject, ref } from 'vue'
 
+import type { Translation } from '@/util/types'
 import Card from '@/components/Card/Card.vue'
 import NavigationCardSection from '@/components/Card/NavigationCardSection.vue'
 import Text from '@/components/Text.vue'
 import OverlayDialog from './OverlayDialog.vue'
 import TransferDialog from './TransferDialog.vue'
+
+const msg = inject<Translation>('msg')!
 
 const emit = defineEmits<{
   (e: 'close'): void

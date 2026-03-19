@@ -1,10 +1,13 @@
 <script lang="ts" setup>
 import GroupTag from '@/components/GroupTag.vue'
 
-import { computed } from 'vue'
+import { computed, inject } from 'vue'
+import type { Translation } from '@/util/types'
 import { useChromeState, useGroupConfigurations } from '@/composables'
 import { until } from '@vueuse/core'
 import { createGroupConfigurationMatcher } from '@/util/group-configurations'
+
+const msg = inject<Translation>('msg')!
 
 const [currentTab] = await chrome.tabs.query({
   active: true,

@@ -14,8 +14,10 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { inject, ref } from 'vue'
 import { colors } from '@/util/resources'
+
+const colorNames = inject<Record<chrome.tabGroups.Color, string>>('colorNames')!
 
 const colorRefs = Object.fromEntries(
   colors.map(color => [color, ref<HTMLInputElement>()]),
